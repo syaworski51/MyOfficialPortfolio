@@ -1,6 +1,7 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using MyOfficialPortfolio.Models;
+using MyOfficialPortfolio.Models.InputForms;
 
 namespace MyOfficialPortfolio.Controllers
 {
@@ -16,6 +17,34 @@ namespace MyOfficialPortfolio.Controllers
         public IActionResult Index()
         {
             return View();
+        }
+
+        public IActionResult AboutMe()
+        {
+            return View();
+        }
+
+        public IActionResult Contact()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Contact(ContactForm form)
+        {
+            try
+            {
+
+            }
+            catch (Exception ex)
+            {
+                var errorMessage = new ErrorViewModel
+                {
+                    Description = ex.Message
+                };
+
+                return View("Error", errorMessage);
+            }
         }
 
         public IActionResult Privacy()

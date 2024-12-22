@@ -3,8 +3,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MyOfficialPortfolio.Models
 {
-    [Table("Images")]
-    public class Image
+    [Table("Media")]
+    public class Media
     {
         public Guid Id { get; set; }
         public Guid ProjectId { get; set; }
@@ -12,5 +12,6 @@ namespace MyOfficialPortfolio.Models
         public DateTime DateUploaded { get; set; }
         public string Path { get; set; }
         public string? Caption { get; set; }
+        public string Type { get; set; }
     }
 }

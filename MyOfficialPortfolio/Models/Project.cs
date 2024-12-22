@@ -12,7 +12,7 @@ namespace MyOfficialPortfolio.Models
         public DateTime? DateCompleted { get; set; }
         public string Tagline { get; set; }
         public string Description { get; set; }
-        public List<Image> Images { get; set; }
+        public List<Media> Images { get; set; }
         public List<Link> Links { get; set; }
     }
 }
