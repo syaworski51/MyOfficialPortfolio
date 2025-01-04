@@ -21,11 +21,16 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.AddSingleton<MongoDbContext>();
 
-var s3Secrets = secrets.GetSection("AWS:S3");
-builder.Services.AddSingleton<S3Service>(sp => new S3Service(
-    s3Secrets["AccessKey"]!,
-    s3Secrets["SecretKey"]!,
-    s3Secrets["Region"]!
+var aws = secrets.GetSection("AWS");
+builder.Services.AddSingleton<S3Service>(serviceProvider => new S3Service(
+    aws.GetValue<string>("AccessKey")!,
+    aws.GetValue<string>("SecretKey")!,
+    aws.GetValue<string>("Region")!
+));
+builder.Services.AddSingleton<SESService>(serviceProvider => new SESService(
+    aws.GetValue<string>("AccessKey")!,
+    aws.GetValue<string>("SecretKey")!,
+    aws.GetValue<string>("Region")!
 ));
 
 var app = builder.Build();

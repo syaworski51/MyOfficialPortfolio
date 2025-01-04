@@ -3,6 +3,6 @@
     public class SuccessModel
     {
         public string Message { get; set; }
-        public List<ActionLink> ActionLinks { get; set; }
+        public List<ActionLink>? ActionLinks { get; set; }
     }
 }

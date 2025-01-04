@@ -10,6 +10,5 @@ namespace MyOfficialPortfolio.Data
             : base(options)
         {
         }
-        public DbSet<MyOfficialPortfolio.Models.Project> Project { get; set; } = default!;
     }
 }
